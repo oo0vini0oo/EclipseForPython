@@ -11,7 +11,7 @@ from appium import webdriver
 # 连接设备
 def connDevice():
     # 指定平台、启动的设备、包名和启动的activity
-    desired_caps = {'platformName': 'Android', 'platformVersion': '4.4', 'deviceName': '217706d3',
+    desired_caps = {'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': '69T7N15C22001823',
                     'appPackage': 'net.easyconn.carman', 'appActivity': '.MainActivity'}
     # 关联Appium
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)

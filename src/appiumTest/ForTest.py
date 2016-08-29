@@ -43,6 +43,8 @@ if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     # 设置一个容器来调用将要执行的测试用例
     myunit =unittest.suite.TestSuite()
+    # myunit1 使用此方法运行该类下所有的用例，执行顺序按照字母排序
+    # myunit1 = unittest.defaultTestLoader.loadTestsFromTestCase(Test)
     # 需要进行测试的用例，顺序执行
     myunit.addTest(Test("testClickText"))
     myunit.addTest(Test("testFindText"))    
@@ -54,7 +56,7 @@ if __name__ == "__main__":
     runner=HTMLTestRunner.HTMLTestRunner(
         stream= fo,
         title='测试报告',
-        description='用例执行详情'                             
+        description='用例执行详情'                           
     )
     runner.run(myunit)
     fo.close()

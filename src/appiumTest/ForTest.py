@@ -48,13 +48,13 @@ if __name__ == "__main__":
     myunit.addTest(Test("testFindText"))    
     myunit.addTest(Test("testClickResourceID"))
     # 获取当前系统时间
-    # mytime=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
-    myfile="C:/Users/Administrator/Documents/a.html"
+    mytime=time.strftime('%Y-%m-%d_%H-%M-%S',time.localtime(time.time()))
+    myfile="C:/Users/Administrator/Documents/result_"+mytime+".html"
     fo = open(myfile,"wb")
     runner=HTMLTestRunner.HTMLTestRunner(
         stream= fo,
-        title='result',
-        description='report'                             
+        title='测试报告',
+        description='用例执行详情'                             
     )
     runner.run(myunit)
     fo.close()

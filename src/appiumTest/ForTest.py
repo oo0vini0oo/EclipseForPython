@@ -5,12 +5,12 @@ Created on 2016年8月24日
 @author: Administrator
 '''
 import unittest
-from appiumTest.ForAppiumTest import *
+from appiumTest.PublicClass import *
 import time
 import HTMLTestRunner
 
 class Test(unittest.TestCase):
-
+  
     @classmethod
     def setUp(self):
         pass
@@ -20,12 +20,12 @@ class Test(unittest.TestCase):
         pass
 
     @classmethod
-    def testFindText(self):
-        findText("下次不再提醒")
+    def testMianZeShengMing(self):
+        findText("免责声明")
         time.sleep(2)       
        
     @classmethod
-    def testClickText(self):
+    def testBuZaiTiXing(self):
         clickText("下次不再提醒")
         time.sleep(2)
         clickText("下次不再提醒")
@@ -34,7 +34,7 @@ class Test(unittest.TestCase):
         time.sleep(2)    
         
     @classmethod
-    def testClickResourceID(self):
+    def testGeRenZhongXin(self):
         # 如何做到自动遍历当前界面所有控件并依次点击？
         clickResourceID("net.easyconn.carman:id/iv_user")
        
@@ -46,11 +46,12 @@ if __name__ == "__main__":
     # myunit1 使用此方法运行该类下所有的用例，执行顺序按照字母排序
     # myunit1 = unittest.defaultTestLoader.loadTestsFromTestCase(Test)
     # 需要进行测试的用例，顺序执行
-    myunit.addTest(Test("testClickText"))
-    myunit.addTest(Test("testFindText"))    
-    myunit.addTest(Test("testClickResourceID"))
+    
+    myunit.addTest(Test("testMianZeShengMing"))
+    myunit.addTest(Test("testBuZaiTiXing"))         
+    myunit.addTest(Test("testGeRenZhongXin"))
     # 获取当前系统时间
-    mytime=time.strftime('%Y-%m-%d_%H-%M-%S',time.localtime(time.time()))
+    mytime=getMyTime()
     myfile="C:/Users/Administrator/Documents/result_"+mytime+".html"
     fo = open(myfile,"wb")
     runner=HTMLTestRunner.HTMLTestRunner(

@@ -7,11 +7,13 @@ Created on 2016年8月24日
 
 from appium import webdriver
 import time
+from cgitb import text
 
 # 连接设备
+
 def connDevice():
     # 指定平台、启动的设备、包名和启动的activity
-    desired_caps = {'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': '022AUM7N49067777','appPackage': 'net.easyconn.carman', 'appActivity': '.MainActivity'}
+    desired_caps = {'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': '69T7N15C22001823','appPackage': 'net.easyconn.carman', 'appActivity': '.MainActivity'}
     # 关联Appium
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
     return driver
@@ -27,38 +29,49 @@ def getMyTime():
 
 # 点击resourceid
 def clickResourceID(resourceid):
-    if driver.find_element_by_id(resourceid):   
-        getScreenShot("点击该控件前的界面")
-        if driver.find_element_by_id(resourceid).click() is True:
-            time.sleep(1)
-            getScreenShot("点击失败界面")
+    try:
+        if driver.find_element_by_id(resourceid):   
+            getScreenShot("点击该控件前的界面")
+            driver.find_element_by_id(resourceid).click()
+            getScreenShot("点击该控件后的界面")
+            return True
+                
         else:
-            time.sleep(1)
-            getScreenShot("点击该控件后的界面")    
-    else:
+            print("未找到该控件："+resourceid)
+            getScreenShot("未找到该控件")
+            return False
+    except :
         print("未找到该控件："+resourceid)
-        getScreenShot("未找到该控件")
-
+        return False    
 # 点击文本
 def clickText(text):
-    if driver.find_element_by_name(text):
-        getScreenShot("点击"+text+"前的界面")
-        driver.find_element_by_name(text).click()
-        time.sleep(2) 
-        getScreenShot("点击"+text+"后的界面")
-    else:
-        print("未找到名字："+text)
-        getScreenShot("未找到文本："+text)
-        time.sleep(1) 
+    try:
+        if driver.find_element_by_name(text):
+            getScreenShot("点击"+text+"前的界面")
+            driver.find_element_by_name(text).click()
+            getScreenShot("点击"+text+"后的界面")
+            return True
+        else:
+            print("未找到名字："+text)
+            getScreenShot("未找到文本："+text)
+            return False
+    except:
+        print("未能点击到文本"+text)  
+        return False      
 
 # 查找文本
 def findText(text):
-    if driver.find_element_by_name(text):
-        getScreenShot(text)
-        time.sleep(1) 
-    else:
+    try:   
+        if driver.find_element_by_name(text):
+            getScreenShot(text)
+            return True
+        else:
+            getScreenShot("未找到文本："+text)
+            return False
+    except:
         getScreenShot("未找到文本："+text)
-        time.sleep(1) 
+        return False 
+       
 
 # 截屏
 def getScreenShot(filename):
@@ -66,7 +79,24 @@ def getScreenShot(filename):
     myscreenshot="C:/Users/Administrator/Documents/"+mytime+filename+".png"
     driver.get_screenshot_as_file(myscreenshot)
     
+def getAlertText():
+    alerttest = driver.switch_to_alert().text()
+    return alerttest
 
 
-    
+
+# def finddevices():
+#     
+#     rst = util.exccmd('adb devices')
+#     devices = re.findall(r'(.*?)\s+device',rst)
+#     if len(devices) >1:
+#         deviceIds = devices[1:]
+#         print('共找到%s个手机'%str(len(devices)-1))
+#         for i in deviceIds:            
+#             print('ID为%s'%i)
+#         return deviceIds
+#     else:
+#         print('没有找到手机，请检查')
+#         return
+#     
         

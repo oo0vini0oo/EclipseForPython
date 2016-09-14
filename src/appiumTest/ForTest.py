@@ -8,6 +8,7 @@ import unittest
 from appiumTest.PublicClass import *
 import time
 import HTMLTestRunner
+from appiumTest.WelcomePage import TanChuangChuLi
 
 class Test(unittest.TestCase):
   
@@ -18,10 +19,17 @@ class Test(unittest.TestCase):
     @classmethod
     def tearDown(self):
         pass
-
+    
+    @classmethod
+    def testTanChuang(self):
+        TanChuangChuLi.tanChuangOne(self)
+       # TanChuangChuLi.clickAlert(self)
+            
     @classmethod
     def testMianZeShengMing(self):
+
         findText("免责声明")
+        
         time.sleep(2)       
        
     @classmethod
@@ -46,9 +54,9 @@ if __name__ == "__main__":
     # myunit1 使用此方法运行该类下所有的用例，执行顺序按照字母排序
     # myunit1 = unittest.defaultTestLoader.loadTestsFromTestCase(Test)
     # 需要进行测试的用例，顺序执行
-    
-    myunit.addTest(Test("testMianZeShengMing"))
-    myunit.addTest(Test("testBuZaiTiXing"))         
+#    myunit.addTest(Test("testTanChuang"))
+    myunit.addTest(Test("testTanChuang"))
+#     myunit.addTest(Test("testBuZaiTiXing"))         
     myunit.addTest(Test("testGeRenZhongXin"))
     # 获取当前系统时间
     mytime=getMyTime()

@@ -5,10 +5,11 @@ Created on 2016年8月24日
 @author: willie
 '''
 import unittest
-from appiumTest.PublicClass import getMyTime,clickResourceID
+from appiumTest.PublicClass import getMyTime,clickResourceID,swipeLeft,swipeRight,getScreenShot
 import HTMLTestRunner
 from appiumTest.WelcomePage import TanChuangChuLi
 from appiumTest.GerenzhongxinPage import gerenzhongxin
+import time
 class Test(unittest.TestCase):
   
     @classmethod
@@ -23,7 +24,24 @@ class Test(unittest.TestCase):
     def testTanChuang(self):
         TanChuangChuLi.tanChuangOne(self)
         # TanChuangChuLi.clickAlert(self)
-            
+        swipeLeft(1000)
+        time.sleep(0.5)
+        getScreenShot("swipe left")
+        swipeRight(1000)
+        time.sleep(0.5)
+        getScreenShot("swipe right")
+        swipeLeft(1000)
+        time.sleep(0.5)
+        getScreenShot("swipe left1")
+        swipeRight(1000)
+        time.sleep(0.5)
+        getScreenShot("swipe right1")
+        swipeLeft(1000)
+        time.sleep(0.5)
+        getScreenShot("swipe left2")
+        swipeRight(1000)
+        time.sleep(0.5)
+        getScreenShot("swipe right2")
     @classmethod
     def testMianZeShengMing(self):
         pass
@@ -32,7 +50,7 @@ class Test(unittest.TestCase):
     def testGeRenZhongXin(self):
         # 如何做到自动遍历当前界面所有控件并依次点击？
         clickResourceID("net.easyconn.carman:id/id_home_main_user")
-        
+         
         gerenzhongxin.geren(self)
 
        
@@ -45,7 +63,7 @@ if __name__ == "__main__":
     # myunit1 = unittest.defaultTestLoader.loadTestsFromTestCase(Test)
     # 需要进行测试的用例，顺序执行
     myunit.addTest(Test("testTanChuang"))
-    myunit.addTest(Test("testGeRenZhongXin"))
+#    myunit.addTest(Test("testGeRenZhongXin"))
 
     # 获取当前系统时间
     mytime=getMyTime()

@@ -18,7 +18,6 @@ def connDevice():
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
     return driver
 
-
 driver = connDevice()
 
 def getMyTime():

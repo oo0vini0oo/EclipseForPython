@@ -32,6 +32,7 @@ class Test(unittest.TestCase):
     def testGeRenZhongXin(self):
         # 如何做到自动遍历当前界面所有控件并依次点击？
         clickResourceID("net.easyconn.carman:id/id_home_main_user")
+        
         gerenzhongxin.geren(self)
 
        

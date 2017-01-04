@@ -20,6 +20,7 @@ Created on 2017年1月4日
 
 from appiumTest.PublicClass import clickResourceID,clickText
 import time
+
 class gerenzhongxin():
     def geren(self):
         clickResourceID("net.easyconn.carman:id/tv_nick_name")

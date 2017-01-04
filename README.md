@@ -1,2 +1,3 @@
+# -*- coding: UTF-8 -*-
 # EclipseForPython
-浣跨敤python杩炴帴appuim鍋氳嚜鍔ㄥ寲娴嬭瘯
+4.0版本，新增设置模块

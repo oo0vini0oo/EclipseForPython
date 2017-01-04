@@ -2,18 +2,18 @@
 '''
 Created on 2016年8月24日
 
-@author: Administrator
+@author: willie
 '''
 
 from appium import webdriver
 import time
-from cgitb import text
+
 
 # 连接设备
 
 def connDevice():
     # 指定平台、启动的设备、包名和启动的activity
-    desired_caps = {'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': '69T7N15C22001823','appPackage': 'net.easyconn.carman', 'appActivity': '.MainActivity'}
+    desired_caps = {'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': '217706d3','appPackage': 'net.easyconn.carman', 'appActivity': '.MainActivity'}
     # 关联Appium
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
     return driver
@@ -31,9 +31,9 @@ def getMyTime():
 def clickResourceID(resourceid):
     try:
         if driver.find_element_by_id(resourceid):   
-            getScreenShot("点击该控件前的界面")
+            getScreenShot("点击id前的界面")
             driver.find_element_by_id(resourceid).click()
-            getScreenShot("点击该控件后的界面")
+            getScreenShot("点击id后的界面")
             return True
                 
         else:
@@ -76,27 +76,6 @@ def findText(text):
 # 截屏
 def getScreenShot(filename):
     mytime=getMyTime()
-    myscreenshot="C:/Users/Administrator/Documents/"+mytime+filename+".png"
+    myscreenshot="C:/Users/willie/Documents/"+mytime+filename+".png"
     driver.get_screenshot_as_file(myscreenshot)
-    
-def getAlertText():
-    alerttest = driver.switch_to_alert().text()
-    return alerttest
 
-
-
-# def finddevices():
-#     
-#     rst = util.exccmd('adb devices')
-#     devices = re.findall(r'(.*?)\s+device',rst)
-#     if len(devices) >1:
-#         deviceIds = devices[1:]
-#         print('共找到%s个手机'%str(len(devices)-1))
-#         for i in deviceIds:            
-#             print('ID为%s'%i)
-#         return deviceIds
-#     else:
-#         print('没有找到手机，请检查')
-#         return
-#     
-        

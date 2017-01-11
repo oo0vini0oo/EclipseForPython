@@ -25,7 +25,7 @@ class Test(unittest.TestCase):
         TanChuangChuLi.tanChuangOne(self)
         # TanChuangChuLi.clickAlert(self)
         swipeLeft(1000)
-        time.sleep(0.5)
+        time.sleep(1)
         getScreenShot("swipe left")
         swipeRight(1000)
         time.sleep(0.5)
@@ -36,24 +36,37 @@ class Test(unittest.TestCase):
         swipeRight(1000)
         time.sleep(0.5)
         getScreenShot("swipe right1")
-        swipeLeft(1000)
-        time.sleep(0.5)
-        getScreenShot("swipe left2")
-        swipeRight(1000)
-        time.sleep(0.5)
-        getScreenShot("swipe right2")
+
+
     @classmethod
     def testMianZeShengMing(self):
         pass
         
     @classmethod
-    def testGeRenZhongXin(self):
+    def testClickuser(self):
         # 如何做到自动遍历当前界面所有控件并依次点击？
         clickResourceID("net.easyconn.carman:id/id_home_main_user")
-         
-        gerenzhongxin.geren(self)
+    
+    @classmethod
+    def testGeren(self):     
+        gerenzhongxin.denglu(self)
+        
+    @classmethod
+    def testYemian(self):     
+        gerenzhongxin.yemian(self)
+    
+    @classmethod
+    def testShezhi(self):     
+        gerenzhongxin.shezhi(self)   
 
-       
+    @classmethod
+    def testFeedback(self):     
+        gerenzhongxin.feedback(self)
+        
+    @classmethod
+    def testAbout(self):     
+        gerenzhongxin.about(self)
+           
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
@@ -63,8 +76,12 @@ if __name__ == "__main__":
     # myunit1 = unittest.defaultTestLoader.loadTestsFromTestCase(Test)
     # 需要进行测试的用例，顺序执行
     myunit.addTest(Test("testTanChuang"))
-#    myunit.addTest(Test("testGeRenZhongXin"))
-
+    myunit.addTest(Test("testClickuser"))
+    myunit.addTest(Test("testGeren"))
+    myunit.addTest(Test("testYemian"))
+    myunit.addTest(Test("testShezhi"))
+    myunit.addTest(Test("testFeedback"))
+    myunit.addTest(Test("testAbout"))
     # 获取当前系统时间
     mytime=getMyTime()
     myfile="C:/Users/willie/Documents/result_"+mytime+".html"

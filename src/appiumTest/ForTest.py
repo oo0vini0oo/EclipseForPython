@@ -25,7 +25,7 @@ class Test(unittest.TestCase):
         TanChuangChuLi.tanChuangOne(self)
         # TanChuangChuLi.clickAlert(self)
         swipeLeft(1000)
-        time.sleep(1)
+        time.sleep(2)
         getScreenShot("swipe left")
         swipeRight(1000)
         time.sleep(0.5)

@@ -1,3 +1,3 @@
 # -*- coding: UTF-8 -*-
 # EclipseForPython
-4.0°æ±¾£¬ÐÂÔöÉèÖÃÄ£¿é
+4.0ç‰ˆæœ¬ï¼Œæ–°å¢žè®¾ç½®æ¨¡å—

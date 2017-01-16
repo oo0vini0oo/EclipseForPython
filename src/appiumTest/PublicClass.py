@@ -29,6 +29,7 @@ def clickResourceID(resourceid):
         if driver.find_element_by_id(resourceid):   
             getScreenShot("点击id前的界面")
             driver.find_element_by_id(resourceid).click()
+            time.sleep(0.3)
             getScreenShot("点击id后的界面")
             return True
                 
@@ -45,6 +46,7 @@ def clickText(text):
         if driver.find_element_by_name(text):
             getScreenShot("点击"+text+"前的界面")
             driver.find_element_by_name(text).click()
+            time.sleep(0.3)
             getScreenShot("点击"+text+"后的界面")
             return True
         else:

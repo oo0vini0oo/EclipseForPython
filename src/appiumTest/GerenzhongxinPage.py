@@ -24,8 +24,8 @@ import time
 class gerenzhongxin():
     def denglu(self):
         clickResourceID("net.easyconn.carman:id/tv_nick_name")
-        time.sleep(1)
-        clickResourceID("KEYCODE_BACK")
+        time.sleep(2)
+        clickResourceID("net.easyconn.carman:id/rl_left")
         
     def yemian(self):
         time.sleep(2)
@@ -64,10 +64,10 @@ class gerenzhongxin():
         time.sleep(1)
         clickResourceID("net.easyconn.carman:id/iv_system_back")
         time.sleep(1)
-        clickText("查找爱车")
-        time.sleep(1)
-        clickResourceID("net.easyconn.carman:id/iv_system_back")
-        time.sleep(1)
+#         clickText("查找爱车")
+#         time.sleep(1)
+#         clickResourceID("net.easyconn.carman:id/iv_system_back")
+#         time.sleep(1)
             
         ''' 
         net.easyconn.carman:id/cb_screen_always_on
@@ -83,19 +83,19 @@ class gerenzhongxin():
         net.easyconn.carman:id/tv_wrc_setting
         '''      
     def shezhi(self):
-        clickResourceID("net.easyconn.carman:id/rl_system_settings")
+        clickResourceID("net.easyconn.carman:id/tv_system_settings")
         time.sleep(1)
         clickResourceID("net.easyconn.carman:id/cb_screen_always_on")
         time.sleep(1)
         clickResourceID("net.easyconn.carman:id/welcom_xiaoyi_cb")
         time.sleep(1)
         clickResourceID("net.easyconn.carman:id/cb_auto_playing_music")
-        time.sleep(1)
-        clickResourceID("net.easyconn.carman:id/tv_music_control")
-        time.sleep(1)
-        clickResourceID("net.easyconn.carman:id/iv_system_back")
-        time.sleep(1)
+        time.sleep(1)       
         clickResourceID("net.easyconn.carman:id/rb_light")
+        time.sleep(1)
+        swipeUp(1000)
+        time.sleep(1)
+        getScreenShot("shiyanshi")
         time.sleep(1)
         clickResourceID("net.easyconn.carman:id/tv_navi_setting")
         time.sleep(1)
@@ -103,15 +103,20 @@ class gerenzhongxin():
         time.sleep(1)
         clickResourceID("net.easyconn.carman:id/rb_night")
         time.sleep(1)
-        swipeUp(1000)
-        time.sleep(1)
-        getScreenShot("shiyanshi")
+
         clickResourceID("net.easyconn.carman:id/tv_wrc_setting")
         time.sleep(1)
         clickResourceID("net.easyconn.carman:id/iv_system_back")
         time.sleep(1)
+        
+        clickResourceID("net.easyconn.carman:id/iv_system_lib")
+        time.sleep(1)
+        clickResourceID("net.easyconn.carman:id/iv_system_back")
+        time.sleep(1)
         swipeDown(1000)
+        time.sleep(1)
         getScreenShot("wushiyanshi")
+        time.sleep(1)
         clickResourceID("net.easyconn.carman:id/cb_screen_always_on")
         time.sleep(1)
         clickResourceID("net.easyconn.carman:id/welcom_xiaoyi_cb")

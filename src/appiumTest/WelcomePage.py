@@ -77,6 +77,3 @@ class TanChuangChuLi():
                 continue
         else:
             print("退出弹框处理")
-            
-    def test(self):
-        print("hhahafddd")

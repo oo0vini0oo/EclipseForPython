@@ -11,7 +11,7 @@ Created on 2016年8月24日
 
 '''
 
-from appiumTest.PublicClass import findText,clickText,clickResourceID
+from appiumTest.PublicClass import clickText
 
 
 class TanChuangChuLi(): 

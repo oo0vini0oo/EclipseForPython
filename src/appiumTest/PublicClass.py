@@ -7,6 +7,7 @@ Created on 2016年8月24日
 
 from appium import webdriver
 import time
+from appium.webdriver.common.touch_action import TouchAction
 
 
 # 连接设备
@@ -40,6 +41,17 @@ def clickResourceID(resourceid):
     except :
         print("未找到该控件："+resourceid)
         return False    
+    
+# 长按
+def LongPress(name):
+    try:
+        action= TouchAction(driver)
+        action.long_press(driver.find_element_by_name(name)).perform()
+        return True
+    except :
+        print("未找到该控件："+name)
+        return False  
+    
 # 点击文本
 def clickText(text):
     try:

@@ -6,8 +6,9 @@ Created on 2016年8月24日
 '''
 
 from appium import webdriver
-import time
+import time,os
 from appium.webdriver.common.touch_action import TouchAction
+from os.path import exists
 
 
 # 连接设备
@@ -23,6 +24,10 @@ driver = connDevice()
 
 def getMyTime():
     mytime=time.strftime('%Y-%m-%d_%H-%M-%S',time.localtime(time.time()))    
+    return mytime
+
+def getCreatdirTime():
+    mytime=time.strftime('%Y-%m-%d_%H',time.localtime(time.time()))    
     return mytime
 
 def keypress(keyint):
@@ -44,7 +49,7 @@ def clickResourceID(resourceid):
             return False
     except :
         print("未找到该控件："+resourceid)
-        return False    
+
     
 # 点击resourceid
 def clickXpath(xpath):
@@ -61,8 +66,7 @@ def clickXpath(xpath):
             return False
     except :
         print("未找到该控件："+xpath)
-        return False   
-    
+
 # 长按
 def LongPress(name):
     try:
@@ -78,7 +82,7 @@ def LongPress(name):
             return False
     except :
         print("未找到该控件："+name)
-        return False  
+        
     
 # 点击文本
 def clickText(text):
@@ -95,7 +99,7 @@ def clickText(text):
             return False
     except:
         print("未能点击到文本"+text)  
-        return False      
+
 
 # 查找文本
 def findText(text):
@@ -108,7 +112,7 @@ def findText(text):
             return False
     except:
         getScreenShot("未找到文本："+text)
-        return False 
+        print("未找到文本"+text)  
        
 # 文本输入
 def setText(resourceid,text):
@@ -123,14 +127,30 @@ def setText(resourceid,text):
             print("未找到id")
     except:
         getScreenShot("未找到id界面")
+        print("未找到id"+resourceid) 
 
 
-
+#创建文件夹
+def creatdir():
+    try:
+        mytime=getCreatdirTime()
+        filenameexists="C:/Users/willie/Documents/"+mytime+""
+        if exists(filenameexists):
+            return mytime
+        else:
+            os.makedirs(filenameexists)
+            return mytime
+    except IOError:
+        print(IOError)
 # 截屏
 def getScreenShot(filename):
-    mytime=getMyTime()
-    myscreenshot="C:/Users/willie/Documents/"+mytime+filename+".png"
-    driver.get_screenshot_as_file(myscreenshot)
+    try:
+        mytime=getMyTime()
+        mycreatdirtime=creatdir()
+        myscreenshot="C:/Users/willie/Documents/"+mycreatdirtime+"/"+mytime+filename+".png"
+        driver.get_screenshot_as_file(myscreenshot)
+    except IOError:
+        print(IOError)
 
 # 获得机器屏幕大小x,y
 def getSize():

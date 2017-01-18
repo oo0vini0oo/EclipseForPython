@@ -19,11 +19,11 @@ class mymap():
     
     def mySearchtext(self):
         clickResourceID("net.easyconn.carman:id/ll_normal")
-        time.sleep(2)
+        time.sleep(1)
         clickResourceID("net.easyconn.carman:id/tv_search")
-        time.sleep(2)
+        time.sleep(1)
         clickResourceID("net.easyconn.carman:id/tv_input")
-        time.sleep(2)
+        time.sleep(1)
         setText("net.easyconn.carman:id/et_search", "汉街")
         time.sleep(1)
         clickXpath('//android.widget.TextView[@text="汉街(楚河南路)"]')
@@ -32,9 +32,9 @@ class mymap():
         time.sleep(1)
         clickXpath('//android.widget.TextView[@text="汉街(楚河南路)"]/../../android.widget.ImageView')
         time.sleep(1)
-        clickXpath('//android.widget.TextView[@text="汉街(楚河南路)"]/../../android.widget.LinearLayout[4]')
+        clickXpath('//android.widget.TextView[@text="汉街(楚河南路)"]/../../android.widget.LinearLayout[2]')
         time.sleep(13)
         
         keypress(4)
-        time.sleep(1)
+        time.sleep(2)
         keypress(4)

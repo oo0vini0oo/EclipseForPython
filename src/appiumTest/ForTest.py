@@ -4,14 +4,14 @@ Created on 2016年8月24日
 
 @author: willie
 '''
-import unittest
-from appiumTest.PublicClass import getMyTime,clickResourceID,swipeLeft,swipeRight,getScreenShot
-import HTMLTestRunner
+import unittest,HTMLTestRunner
+from appiumTest.PublicClass import getMyTime, creatdir
 from appiumTest.WelcomePage import TanChuangChuLi
 from appiumTest.GerenzhongxinPage import gerenzhongxin
-import time
 from appiumTest.ThreeApp import threeAppTest
 from appiumTest.Map import mymap
+
+
 class Test(unittest.TestCase):
   
     @classmethod
@@ -24,24 +24,11 @@ class Test(unittest.TestCase):
     
     @classmethod
     def testTanChuang(self):
-        TanChuangChuLi.tanChuangOne(self)
-
-        swipeLeft(1000)
-        time.sleep(1.5)
-        getScreenShot("swipe left")
-        swipeRight(1000)
-        time.sleep(0.5)
-        getScreenShot("swipe right")
-
-     
-    @classmethod
-    def testMianZeShengMing(self):
-        pass
-        
+        TanChuangChuLi.tanChuang(self)
+           
     @classmethod
     def testClickuser(self):
-        # 如何做到自动遍历当前界面所有控件并依次点击？
-        clickResourceID("net.easyconn.carman:id/id_home_main_user")
+        gerenzhongxin.cilckuser(self)
     
     @classmethod
     def testGeren(self):     
@@ -79,17 +66,18 @@ if __name__ == "__main__":
     # myunit1 = unittest.defaultTestLoader.loadTestsFromTestCase(Test)
     # 需要进行测试的用例，顺序执行
     myunit.addTest(Test("testTanChuang"))
-#     myunit.addTest(Test("testClickuser"))
-#     myunit.addTest(Test("testGeren"))
-#     myunit.addTest(Test("testYemian"))
-#     myunit.addTest(Test("testShezhi"))
-#     myunit.addTest(Test("testFeedback"))
-#     myunit.addTest(Test("testAbout"))
-#     myunit.addTest(Test("testThreeApp"))
+    myunit.addTest(Test("testClickuser"))
+    myunit.addTest(Test("testGeren"))
+    myunit.addTest(Test("testYemian"))
+    myunit.addTest(Test("testShezhi"))
+    myunit.addTest(Test("testFeedback"))
+    myunit.addTest(Test("testAbout"))
+    myunit.addTest(Test("testThreeApp"))
     myunit.addTest(Test("testMap"))
     # 获取当前系统时间
+    wenjianjia=creatdir()
     mytime=getMyTime()
-    myfile="C:/Users/willie/Documents/result_"+mytime+".html"
+    myfile="C:/Users/willie/Documents/"+wenjianjia+"/result_"+mytime+".html"
     fo = open(myfile,"wb")
     runner=HTMLTestRunner.HTMLTestRunner(
         stream= fo,

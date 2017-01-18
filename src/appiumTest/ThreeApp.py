@@ -4,14 +4,14 @@ Created on 2017年1月17日
 
 @author: willie
 '''
-from appiumTest.PublicClass import *
+from appiumTest.PublicClass import swipeLeft,getScreenShot,LongPress,keypress,clickXpath,clickText,swipeRight
 import time
 
 class threeAppTest():
     
     def threeApp(self):
         swipeLeft(1000)
-        time.sleep(1.5)
+        time.sleep(2)
         getScreenShot("swipe left")
         LongPress("微信")
         keypress(4)

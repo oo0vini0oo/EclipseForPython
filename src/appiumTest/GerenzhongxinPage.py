@@ -22,6 +22,10 @@ from appiumTest.PublicClass import clickResourceID,clickText,swipeUp,swipeDown,g
 import time
 
 class gerenzhongxin():
+    
+    def cilckuser(self):
+        clickResourceID("net.easyconn.carman:id/id_home_main_user")
+    
     def denglu(self):
         clickResourceID("net.easyconn.carman:id/tv_nick_name")
         time.sleep(2)

@@ -15,7 +15,7 @@ from appiumTest.PublicClass import clickText
 
 
 class TanChuangChuLi():
-    def tanChuangOne(self):
+    def tanChuang(self):
         myBoolean=True
         while myBoolean:   
             try:

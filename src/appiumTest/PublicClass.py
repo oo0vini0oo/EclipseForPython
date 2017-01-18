@@ -22,10 +22,12 @@ def connDevice():
 
 driver = connDevice()
 
+# 获取当前时间
 def getMyTime():
     mytime=time.strftime('%Y-%m-%d_%H-%M-%S',time.localtime(time.time()))    
     return mytime
 
+# 获取当前时间
 def getCreatdirTime():
     mytime=time.strftime('%Y-%m-%d_%H',time.localtime(time.time()))    
     return mytime

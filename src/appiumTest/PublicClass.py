@@ -12,8 +12,9 @@ from appium.webdriver.common.touch_action import TouchAction
 
 # 连接设备
 def connDevice():
-    # 指定平台、启动的设备、包名和启动的activity
-    desired_caps = {'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': '217706d3','appPackage': 'net.easyconn.carman', 'appActivity': '.MainActivity'}
+    # 指定平台、启动的设备、包名和启动的activity  unicodeKeyboard是使用unicode编码方式发送字符串  resetKeyboard是将键盘隐藏起来
+    desired_caps = {'platformName': 'Android', 'platformVersion': '6.0', 'deviceName': '217706d3','appPackage': 'net.easyconn.carman', 'appActivity': '.MainActivity',
+                    'unicodeKeyboard':True,'resetKeyboard':True}
     # 关联Appium
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
     return driver
@@ -24,6 +25,9 @@ def getMyTime():
     mytime=time.strftime('%Y-%m-%d_%H-%M-%S',time.localtime(time.time()))    
     return mytime
 
+def keypress(keyint):
+    driver.keyevent(keyint)
+    
 # 点击resourceid
 def clickResourceID(resourceid):
     try:
@@ -42,12 +46,36 @@ def clickResourceID(resourceid):
         print("未找到该控件："+resourceid)
         return False    
     
+# 点击resourceid
+def clickXpath(xpath):
+    try:
+        if driver.find_element_by_xpath(xpath):   
+            getScreenShot("点击xpath前的界面")
+            driver.find_element_by_xpath(xpath).click()
+            time.sleep(0.3)
+            getScreenShot("点击xpath后的界面")
+            return True                
+        else:
+            print("未找到该控件："+xpath)
+            getScreenShot("未找到该控件")
+            return False
+    except :
+        print("未找到该控件："+xpath)
+        return False   
+    
 # 长按
 def LongPress(name):
     try:
-        action= TouchAction(driver)
-        action.long_press(driver.find_element_by_name(name)).perform()
-        return True
+        if driver.find_element_by_name(name):
+            getScreenShot("长按"+name+"前的界面")
+            action= TouchAction(driver)
+            action.long_press(driver.find_element_by_name(name)).perform()
+            getScreenShot("长按"+name+"后的界面")
+            return True
+        else:
+            print("未找到名字："+name)
+            getScreenShot("未找到文本："+name)
+            return False
     except :
         print("未找到该控件："+name)
         return False  
@@ -82,6 +110,21 @@ def findText(text):
         getScreenShot("未找到文本："+text)
         return False 
        
+# 文本输入
+def setText(resourceid,text):
+    try:
+        if driver.find_element_by_id(resourceid):
+            getScreenShot("点击id前的界面")
+            time.sleep(0.5)
+            driver.find_element_by_id(resourceid).send_keys(text)
+            time.sleep(0.5)
+            getScreenShot("点击id后的界面")
+        else:
+            print("未找到id")
+    except:
+        getScreenShot("未找到id界面")
+
+
 
 # 截屏
 def getScreenShot(filename):

@@ -16,7 +16,7 @@ class threeAppTest():
         LongPress("微信")
         keypress(4)
         time.sleep(1)
-        clickXpath('//android.widget.TextView[@text="微信"]/../../../android.widget.RelativeLayout[4]/android.widget.ImageView[1]')
+        clickXpath('//android.widget.TextView[@text="微信"]/../../../android.widget.RelativeLayout[3]/android.widget.ImageView[1]')
         time.sleep(2)
         keypress(4)
         time.sleep(2)

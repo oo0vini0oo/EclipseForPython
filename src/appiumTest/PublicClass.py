@@ -32,6 +32,7 @@ def getCreatdirTime():
     mytime=time.strftime('%Y-%m-%d_%H',time.localtime(time.time()))    
     return mytime
 
+# 直接通过键值操作对应的功能
 def keypress(keyint):
     driver.keyevent(keyint)
     

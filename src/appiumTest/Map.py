@@ -12,7 +12,7 @@ Created on 2017年1月18日
     net.easyconn.carman:id/et_search
     net.easyconn.carman:id/tv_enter
 '''
-from appiumTest.PublicClass import setText,clickResourceID,clickXpath,keypress
+from appiumTest.PublicClass import setText,clickResourceID,clickXpath,keypress,getScreenShot
 import time
 
 class mymap():
@@ -34,7 +34,9 @@ class mymap():
         time.sleep(1)
         clickXpath('//android.widget.TextView[@text="汉街(楚河南路)"]/../../android.widget.LinearLayout[2]')
         time.sleep(13)
-        
+        getScreenShot("导航界面")
         keypress(4)
+        time.sleep(2)
+        getScreenShot("返回主界面")
         time.sleep(2)
         keypress(4)

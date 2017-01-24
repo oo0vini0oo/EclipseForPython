@@ -4,12 +4,13 @@ Created on 2016年8月24日
 
 @author: willie
 '''
-import unittest,HTMLTestRunner
+import unittest,HTMLTestRunner,time
 from appiumTest.PublicClass import getMyTime, creatdir
 from appiumTest.WelcomePage import TanChuangChuLi
 from appiumTest.GerenzhongxinPage import gerenzhongxin
 from appiumTest.ThreeApp import threeAppTest
 from appiumTest.Map import mymap
+from appiumTest.MusicPage import musicMain
 
 
 class Test(unittest.TestCase):
@@ -25,6 +26,7 @@ class Test(unittest.TestCase):
     @classmethod
     def testTanChuang(self):
         TanChuangChuLi.tanChuang(self)
+        time.sleep(3)
            
     @classmethod
     def testClickuser(self):
@@ -58,6 +60,11 @@ class Test(unittest.TestCase):
     def testMap(self):
         mymap.mySearchtext(self)
         
+    @classmethod
+    def testMusic(self):
+        
+        musicMain.musicList(self)    
+        
 if __name__ == "__main__":
 
     # 设置一个容器来调用将要执行的测试用例
@@ -74,6 +81,7 @@ if __name__ == "__main__":
     myunit.addTest(Test("testAbout"))
     myunit.addTest(Test("testThreeApp"))
     myunit.addTest(Test("testMap"))
+    myunit.addTest(Test("testMusic"))
     # 获取当前系统时间
     wenjianjia=creatdir()
     mytime=getMyTime()

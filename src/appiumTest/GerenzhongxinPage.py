@@ -18,7 +18,7 @@ Created on 2017年1月4日
 
 '''
 
-from appiumTest.PublicClass import clickResourceID,clickText,swipeUp,swipeDown,getScreenShot,swipeLeft,swipeRight
+from appiumTest.PublicClass import clickResourceID,clickText,swipeUp,swipeDown,getScreenShot,swipeLeft,swipeRight, clickXpath
 import time
 
 class gerenzhongxin():
@@ -63,29 +63,17 @@ class gerenzhongxin():
         clickText("路况提醒")
         time.sleep(1)
         clickResourceID("net.easyconn.carman:id/iv_system_back")
-        time.sleep(1)
+        time.sleep(2)
         clickText("胎压检测")
         time.sleep(1)
         clickResourceID("net.easyconn.carman:id/iv_system_back")
         time.sleep(1)
+
 #         clickText("查找爱车")
 #         time.sleep(1)
 #         clickResourceID("net.easyconn.carman:id/iv_system_back")
 #         time.sleep(1)
-            
-        ''' 
-        net.easyconn.carman:id/cb_screen_always_on
-        net.easyconn.carman:id/welcom_xiaoyi_cb
-        net.easyconn.carman:id/cb_auto_playing_music
-        net.easyconn.carman:id/tv_music_control
-        
-        net.easyconn.carman:id/rb_auto
-        net.easyconn.carman:id/rb_night
-        net.easyconn.carman:id/rb_light
-        
-        net.easyconn.carman:id/tv_navi_setting
-        net.easyconn.carman:id/tv_wrc_setting
-        '''      
+               
     def shezhi(self):
         clickResourceID("net.easyconn.carman:id/tv_system_settings")
         time.sleep(1)

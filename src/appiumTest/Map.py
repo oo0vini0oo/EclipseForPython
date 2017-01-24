@@ -4,6 +4,7 @@ Created on 2017年1月18日
 
 @author: willie
 '''
+from asyncio.tasks import sleep
 
 
 '''
@@ -40,3 +41,7 @@ class mymap():
         getScreenShot("返回主界面")
         time.sleep(2)
         keypress(4)
+        time.sleep(2)
+        
+        
+        

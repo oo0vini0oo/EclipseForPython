@@ -27,7 +27,7 @@ def getMyTime():
     mytime=time.strftime('%Y-%m-%d_%H-%M-%S',time.localtime(time.time()))    
     return mytime
 
-# 获取当前时间
+# 获取当前时间 文件夹
 def getCreatdirTime():
     mytime=time.strftime('%Y-%m-%d_%H',time.localtime(time.time()))    
     return mytime
@@ -137,7 +137,7 @@ def setText(resourceid,text):
 def creatdir():
     try:
         mytime=getCreatdirTime()
-        filenameexists="C:/Users/willie/Documents/"+mytime+""
+        filenameexists="C:/Users/Administrator/Documents/"+mytime+""
         if exists(filenameexists):
             return mytime
         else:
@@ -150,7 +150,7 @@ def getScreenShot(filename):
     try:
         mytime=getMyTime()
         mycreatdirtime=creatdir()
-        myscreenshot="C:/Users/willie/Documents/"+mycreatdirtime+"/"+mytime+filename+".png"
+        myscreenshot="C:/Users/Administrator/Documents/"+mycreatdirtime+"/"+mytime+filename+".png"
         driver.get_screenshot_as_file(myscreenshot)
     except IOError:
         print(IOError)

@@ -73,19 +73,19 @@ if __name__ == "__main__":
     # myunit1 = unittest.defaultTestLoader.loadTestsFromTestCase(Test)
     # 需要进行测试的用例，顺序执行
     myunit.addTest(Test("testTanChuang"))
-    myunit.addTest(Test("testClickuser"))
-    myunit.addTest(Test("testGeren"))
-    myunit.addTest(Test("testYemian"))
-    myunit.addTest(Test("testShezhi"))
-    myunit.addTest(Test("testFeedback"))
-    myunit.addTest(Test("testAbout"))
-    myunit.addTest(Test("testThreeApp"))
+#     myunit.addTest(Test("testClickuser"))
+#     myunit.addTest(Test("testGeren"))
+#     myunit.addTest(Test("testYemian"))
+#     myunit.addTest(Test("testShezhi"))
+#     myunit.addTest(Test("testFeedback"))
+#     myunit.addTest(Test("testAbout"))
+#     myunit.addTest(Test("testThreeApp"))
     myunit.addTest(Test("testMap"))
     myunit.addTest(Test("testMusic"))
     # 获取当前系统时间
     wenjianjia=creatdir()
     mytime=getMyTime()
-    myfile="C:/Users/willie/Documents/"+wenjianjia+"/result_"+mytime+".html"
+    myfile="C:/Users/Administrator/Documents/"+wenjianjia+"/result_"+mytime+".html"
     fo = open(myfile,"wb")
     runner=HTMLTestRunner.HTMLTestRunner(
         stream= fo,
